@@ -1,0 +1,20 @@
+{
+  "name": "full-stack-developer-technical-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rodriguezespinoza0795/Full-stack-Developer-technical-test.git",
+  "author": "rodriguezespinoza0795 <rodriguezespinoza0795@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "engines": {
+    "node": "16.x"
+  },
+  "workspaces": [
+    "client",
+    "api"
+  ],
+  "scripts": {
+    "apidev": "yarn --cwd api dev",
+    "clientdev": "yarn --cwd client dev"
+  }
+}
