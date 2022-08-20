@@ -1,7 +1,12 @@
+scalar Datetime
+
 type Query {
   users: [User]
 }
 
 type User {
   id: Int!
+  email: String!
+  password: String!
+  createdAt: Datetime!
 }

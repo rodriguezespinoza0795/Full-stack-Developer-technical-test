@@ -2,9 +2,11 @@ import { ApolloServer } from 'apollo-server-express';
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 import http from 'http';
 import path from 'path';
+import { PrismaClient } from "@prisma/client";
 import { readFileSync } from 'fs';
 import resolvers from './resolvers';
 import express from 'express';
+const prisma = new PrismaClient()
 
 const app = express();
 
@@ -20,6 +22,12 @@ export default async function start() {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
+        context: ({ req }) => {
+            // if (req.user === undefined) {
+            //   throw new Error('Unauthenticated User');
+            // }
+            return { prisma };
+        },
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
         introspection: true,
     });
