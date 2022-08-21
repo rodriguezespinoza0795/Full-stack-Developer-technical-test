@@ -2,36 +2,71 @@ import React from 'react'
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Link from 'next/link';
 
-const CardComponent = ({ href, title, description }: { href: string, title: string, description: string }) => {
+interface CardProps {
+    href: string,
+    title: string,
+    description: string,
+    external?: boolean
+}
+
+const Content = React.forwardRef(function Content({ title, description }: { title: string, description: string }, ref) {
+    return (
+        <>
+            <Typography
+                variant="h5"
+                gutterBottom
+                fontWeight='bold'
+                sx={{
+                    display: "flex",
+                    alignItems: "center"
+                }}
+            >{title} <ArrowForwardIcon />
+            </Typography>
+            <Typography
+                variant="body1"
+            >
+                {description}
+            </Typography>
+        </>
+    );
+});
+
+const CardComponent = ({ href, title, description, external = true }: CardProps) => {
     return (
         <Card
             sx={{
                 margin: "1rem",
                 padding: "1.5rem",
-                maxWidth: "300px"
+                width: "300px",
+                height: "140px"
             }}>
-            <a
-                target="_blank"
-                rel="noreferrer"
-                href={href}
-            >
-                <Typography
-                    variant="h5"
-                    gutterBottom
-                    fontWeight='bold'
-                    sx={{
-                        display: "flex",
-                        alignItems: "center"
-                    }}
-                >{title} <ArrowForwardIcon />
-                </Typography>
-                <Typography
-                    variant="body1"
-                >
-                    {description}
-                </Typography>
-            </a>
+            {
+                external
+                    ? (
+                        < a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={href}
+                        >
+
+                            <Content
+                                title={title}
+                                description={description}
+                            />
+                        </a>
+                    ) : (
+                        <Link href={href}>
+                            <a>
+                                <Content
+                                    title={title}
+                                    description={description}
+                                />
+                            </a>
+                        </Link>
+                    )
+            }
         </Card>
     )
 }

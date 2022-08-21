@@ -54,9 +54,10 @@ const Home: NextPage = () => {
             description="Discover and deploy boilerplate example Next.js projects."
           />
           <CardComponent
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            title="Deploy"
-            description="Instantly deploy your Next.js site to a public URL with Vercel."
+            href="/form"
+            title="Formulario"
+            description="Completar formulario"
+            external={false}
           />
         </Box>
       </Box>
