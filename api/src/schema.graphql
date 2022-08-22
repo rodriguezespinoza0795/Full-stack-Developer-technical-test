@@ -1,7 +1,22 @@
 scalar Datetime
+scalar Date
 
 type Query {
   users: [User]
+  industries: [Industry]
+  regimens:[Regime]
+  nationalities:[Nationality]
+  banks:[Bank]
+  cities:[City]
+  states:[State]
+  countries:[Country]
+  genders:[Gender]
+  maritalStatus:[MaritalStatus]
+  formAnswers:[formAnswer]
+}
+
+type Mutation {
+  createFormAnswer(data:createformAnswer):formAnswer
 }
 
 type User {
@@ -9,4 +24,144 @@ type User {
   email: String!
   password: String!
   createdAt: Datetime!
+}
+
+type Industry {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type Regime {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type Nationality {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type Bank {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type City {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type State {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type Country {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type Gender {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type MaritalStatus {
+  id: Int!
+  name: String!
+  createdAt: Datetime!
+}
+
+type formAnswer {
+  id: Int!
+  businessName: String!
+  tradename: String!
+  idIndustry: Int!
+  industry: Industry
+  idRegime: Int!
+  regime: Regime
+  constitutionDate: Date!
+  rfc: String!
+  idNationality: Int!
+  nationality: Nationality
+  phone: String!
+  mail: String!
+  clabe: String!
+  idBank: Int!
+  bank: Bank
+  street: String!
+  intNumber: Int!    
+  extNumber: Int
+  cp: Int!
+  colony: String!
+  idCity: Int!
+  city: City
+  idState: Int!
+  state: State
+  idCountry: Int!
+  country: Country
+  proofResidencyURL: String
+  namePerson: String!
+  idGender: Int!
+  gender: Gender
+  birthday: Date!
+  idBirthState: Int!
+  birthState: State
+  idBirthCountry: Int!
+  birthCountry: Country
+  idNationalityPerson: Int!
+  nationalityPerson: Nationality
+  curpPerson: String!
+  rfcPerson: String!
+  address: String!
+  idMaritalStatus: Int!
+  maritalStatus: MaritalStatus
+  phonePerson: String!
+  mailPerson: String!
+  identificationURL: String
+  createdAt: Datetime!
+}
+
+input createformAnswer {
+  businessName: String!
+  tradename: String!
+  idIndustry: Int!
+  idRegime: Int!
+  constitutionDate: Date!
+  rfc: String!
+  idNationality: Int!
+  phone: String!
+  mail: String!
+  clabe: String!
+  idBank: Int!
+  street: String!
+  intNumber: Int!    
+  extNumber: Int
+  cp: Int!
+  colony: String!
+  idCity: Int!
+  idState: Int!
+  idCountry: Int!
+  proofResidencyURL: String
+  namePerson: String!
+  idGender: Int!
+  birthday: Date!
+  idBirthState: Int!
+  idBirthCountry: Int!
+  idNationalityPerson: Int!
+  curpPerson: String!
+  rfcPerson: String!
+  address: String!
+  idMaritalStatus: Int!
+  phonePerson: String!
+  mailPerson: String!
+  identificationURL: String
 }

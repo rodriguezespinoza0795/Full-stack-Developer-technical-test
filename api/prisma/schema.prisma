@@ -16,3 +16,119 @@ model user {
   password    String
   createdAt   DateTime @default(now())
 }
+
+model Industry {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  answers     formAnswer[]
+  createdAt   DateTime @default(now())
+}
+
+model Regime {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  answers     formAnswer[]
+  createdAt   DateTime @default(now())
+}
+
+model Nationality {
+  id                    Int      @id @default(autoincrement())
+  name                  String   @unique
+  nationalities         formAnswer[] @relation("nationality")
+  nationalitiesPerson   formAnswer[] @relation("nationalityPerson")
+  createdAt             DateTime @default(now())
+}
+
+model Bank {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  answers     formAnswer[]
+  createdAt   DateTime @default(now())
+}
+
+model City {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  answers     formAnswer[]
+  createdAt   DateTime @default(now())
+}
+
+model State {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  states      formAnswer[] @relation("state")
+  birthState  formAnswer[] @relation("birthState")
+  createdAt   DateTime @default(now())
+}
+
+model Country {
+  id           Int      @id @default(autoincrement())
+  name         String   @unique
+  countries    formAnswer[] @relation("country")
+  birthCountry formAnswer[] @relation("birthCountry")
+  createdAt    DateTime @default(now())
+}
+
+model Gender {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  answers     formAnswer[]
+  createdAt   DateTime @default(now())
+}
+
+model MaritalStatus {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  answers     formAnswer[]
+  createdAt   DateTime @default(now())
+}
+
+model formAnswer {
+  id                     Int           @id @default(autoincrement())
+  businessName           String        @unique @map("business_name")
+  tradename              String        @unique @map("trade_name")
+  idIndustry             Int           @map("id_industry")
+  industry               Industry      @relation(fields: [idIndustry], references: [id])
+  idRegime               Int           @map("id_regime")
+  regime                 Regime        @relation(fields: [idRegime], references: [id])
+  constitutionDate       DateTime      @db.Date @map("constitution_date")
+  rfc                    String
+  idNationality          Int           @map("id_nationality")
+  nationality            Nationality   @relation("nationality",fields: [idNationality], references: [id])
+  phone                  String
+  mail                   String
+  clabe                  String
+  idBank                 Int           @map("id_bank")
+  bank                   Bank          @relation(fields: [idBank], references: [id])
+  street                 String
+  intNumber              Int           @map("int_number")       
+  extNumber              Int?          @map("ext_number")
+  cp                     Int
+  colony                 String
+  idCity                 Int           @map("id_city")
+  city                   City          @relation(fields: [idCity], references: [id])
+  idState                Int           @map("id_state")
+  state                  State         @relation("state",fields: [idState], references: [id])
+  idCountry              Int           @map("id_country")
+  country                Country       @relation("country",fields: [idCountry], references: [id])
+  proofResidencyURL      String?       @map("proof_residency_url")
+  namePerson             String        @map("name_person")
+  idGender               Int           @map("id_gender")
+  gender                 Gender        @relation(fields: [idGender], references: [id])
+  birthday               DateTime      @db.Date
+  idBirthState           Int           @map("id_birth_state")
+  birthState             State         @relation("birthState",fields: [idBirthState], references: [id])
+  idBirthCountry         Int           @map("id_birth_country")
+  birthCountry           Country       @relation("birthCountry",fields: [idBirthCountry], references: [id])
+  idNationalityPerson    Int           @map("id_nationality_person")
+  nationalityPerson      Nationality   @relation("nationalityPerson",fields: [idNationalityPerson], references: [id])
+  curpPerson             String        @map("curp_person")
+  rfcPerson              String        @map("rfc_person")
+  address                String
+  idMaritalStatus        Int           @map("id_marital_status")
+  maritalStatus          MaritalStatus @relation(fields: [idMaritalStatus], references: [id])
+  phonePerson            String        @map("phone_person")
+  mailPerson             String        @map("mail_person")
+  identificationURL      String?       @map("identification_url")
+  createdAt              DateTime      @default(now())
+}

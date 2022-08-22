@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import AutocompleteComponent from '../../components/Autocomplete'
 import { Button } from '@mui/material';
-import { GerUsers } from '../../graphql/form.graphql'
+import { getUsers } from '../../graphql/form.graphql'
 import { useQuery } from '@apollo/client';
 
 const onSubmit: SubmitHandler<any> = (data) => {
@@ -11,7 +11,7 @@ const onSubmit: SubmitHandler<any> = (data) => {
 }
 
 const Form = () => {
-    const { loading, data } = useQuery(GerUsers)
+    const { loading, data } = useQuery(getUsers)
     console.log(loading, data)
     const { handleSubmit, control } = useForm<any>({
         defaultValues: { country: { code: "", label: "", phone: "" } }
