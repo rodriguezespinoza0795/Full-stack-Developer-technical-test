@@ -12,7 +12,9 @@ const Footer = () => {
                 padding: " 2rem 0",
                 borderTop: "1px solid #eaeaea",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
+                background: "black",
+                color: "white"
             }}>
             Hecho por David Rodriguez para{' '}
             <Box component="span" sx={{ height: "1rem", marginLeft: "0.5rem" }}>

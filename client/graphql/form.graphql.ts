@@ -1,42 +1,42 @@
-import { useQuery, gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
-const getUsers = gql`
+const getCatalogues = gql`
     query Query {
         industries {
-            id
-            name
+            value: id
+            label: name
         },
         regimens {
-            id
-            name
+            value: id
+            label: name
         },
         nationalities {
-            id
-            name
+            value: id
+            label: name
         },
         banks {
-            id
-            name
+            value: id
+            label: name
         }
         cities {
-            id
-            name
+            value: id
+            label: name
         },
         states {
-            id
-            name
+            value: id
+            label: name
         },
         countries {
-            id
-            name
+            value: id
+            label: name
         },
         genders {
-            id
-            name
+            value: id
+            label: name
         },
         maritalStatus {
-            id
-            name
+            value: id
+            label: name
         }
     }
 `
@@ -83,4 +83,4 @@ mutation Mutation($data: createformAnswer) {
   }
 `
 
-export { getUsers, createformAnswer }
+export { getCatalogues, createformAnswer }
