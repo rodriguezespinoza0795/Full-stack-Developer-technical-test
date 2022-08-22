@@ -1,20 +1,14 @@
 {
+    "extends": "../tsconfig.base.json",
     "compilerOptions": {
-        "sourceMap": true,
-        "strict": true,
-        "lib": [
-            "esnext"
-        ],
-        "target": "es2016",
-        "outDir": "../dist",
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "types": [
-            "node"
-        ]
+    "outDir": "../dist",
+    "module": "commonjs",
+    "types": [
+        "node"
+    ]
     },
     "exclude": [
-        "node_modules"
+        "**/*.spec.ts"
     ],
     "include": [
         "**/*.ts"
