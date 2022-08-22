@@ -14,7 +14,6 @@
     "api"
   ],
   "scripts": {
-    "apidev": "yarn --cwd api dev",
-    "clientdev": "yarn --cwd client dev"
+    "build": "yarn --cwd api build"
   }
 }
