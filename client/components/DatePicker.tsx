@@ -21,7 +21,7 @@ const MuiDatePicker = ({ control, name, label }: { control: any, name: string, l
                         onChange={(value: any) => {
                             onChange(value);
                         }}
-                        renderInput={(params: any) => <TextField fullWidth required {...params} />}
+                        renderInput={(params: any) => <TextField fullWidth {...params} />}
                     />
                 )}
             />
