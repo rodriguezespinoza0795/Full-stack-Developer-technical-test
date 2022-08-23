@@ -95,9 +95,9 @@ model formAnswer {
   rfc                    String
   idNationality          Int           @map("id_nationality")
   nationality            Nationality   @relation("nationality",fields: [idNationality], references: [id])
-  phone                  String
+  phone                  BigInt        @db.BigInt
   mail                   String
-  clabe                  String
+  clabe                  BigInt        @db.BigInt
   idBank                 Int           @map("id_bank")
   bank                   Bank          @relation(fields: [idBank], references: [id])
   street                 String
@@ -127,7 +127,7 @@ model formAnswer {
   address                String
   idMaritalStatus        Int           @map("id_marital_status")
   maritalStatus          MaritalStatus @relation(fields: [idMaritalStatus], references: [id])
-  phonePerson            String        @map("phone_person")
+  phonePerson            BigInt        @db.BigInt @map("phone_person")
   mailPerson             String        @map("mail_person")
   identificationURL      String?       @map("identification_url")
   createdAt              DateTime      @default(now())

@@ -92,9 +92,9 @@ type formAnswer {
   rfc: String!
   idNationality: Int!
   nationality: Nationality
-  phone: String!
+  phone: Int!
   mail: String!
-  clabe: String!
+  clabe: Int!
   idBank: Int!
   bank: Bank
   street: String!
@@ -124,7 +124,7 @@ type formAnswer {
   address: String!
   idMaritalStatus: Int!
   maritalStatus: MaritalStatus
-  phonePerson: String!
+  phonePerson: Int!
   mailPerson: String!
   identificationURL: String
   createdAt: Datetime!
@@ -138,9 +138,9 @@ input createformAnswer {
   constitutionDate: Date!
   rfc: String!
   idNationality: Int!
-  phone: String!
+  phone: Int!
   mail: String!
-  clabe: String!
+  clabe: Int!
   idBank: Int!
   street: String!
   intNumber: Int!    
@@ -161,7 +161,7 @@ input createformAnswer {
   rfcPerson: String!
   address: String!
   idMaritalStatus: Int!
-  phonePerson: String!
+  phonePerson: Int!
   mailPerson: String!
   identificationURL: String
 }

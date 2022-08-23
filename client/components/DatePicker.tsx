@@ -4,10 +4,9 @@ import { TextField } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { format } from 'date-fns'
 
-
-
-const MuiDatePicker = ({ control, name, label }: { control: any, name: string, label: string }) => {
+const MuiDatePicker = ({ control, name, label, required }: { control: any, name: string, label: string, required: boolean }) => {
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Controller
@@ -19,9 +18,9 @@ const MuiDatePicker = ({ control, name, label }: { control: any, name: string, l
                         label={label}
                         value={value}
                         onChange={(value: any) => {
-                            onChange(value);
+                            onChange(format(value, 'yyyy-MM-dd'));
                         }}
-                        renderInput={(params: any) => <TextField fullWidth {...params} />}
+                        renderInput={(params: any) => <TextField fullWidth {...params} required={required} />}
                     />
                 )}
             />
