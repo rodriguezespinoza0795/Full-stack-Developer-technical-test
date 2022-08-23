@@ -8,17 +8,19 @@ import { getCatalogues, createformAnswer } from "../../graphql/form.graphql"
 import { useQuery, useMutation } from '@apollo/client';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { useSnackbar } from 'notistack';
+import { useRouter } from 'next/router'
 
 export default function App() {
+    const router = useRouter()
     const { enqueueSnackbar } = useSnackbar();
     const { handleSubmit, control, formState: { errors }, reset } = useForm();
     const { loading, data } = useQuery(getCatalogues)
-    const [MutateCreateForm, { data: dataForm, loading: loadingForm, error: errorForm }] = useMutation(createformAnswer);
+    const [MutateCreateForm, { error: errorForm }] = useMutation(createformAnswer);
 
-    const onSubmit = (data: any) => {
+    const onSubmit = async (data: any) => {
         MutateCreateForm({ variables: { data: data } });
-        reset()
-        errorForm && enqueueSnackbar('Se Realizó el registro correctamente', { variant: "success" });
+        enqueueSnackbar('Se Realizó el registro correctamente', { variant: "success" });
+        router.push('/')
     }
 
     return (

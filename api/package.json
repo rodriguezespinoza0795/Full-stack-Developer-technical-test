@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "dev": "nodemon index.ts",
     "build": "prisma generate && yarn clean && tsc --build && yarn copyfiles",
     "start": "node ../dist/api/index.js",
     "clean": "rimraf ../dist/api",
