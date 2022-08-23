@@ -97,7 +97,7 @@ model formAnswer {
   nationality            Nationality   @relation("nationality",fields: [idNationality], references: [id])
   phone                  BigInt        @db.BigInt
   mail                   String
-  clabe                  BigInt        @db.BigInt
+  clabe                  String        
   idBank                 Int           @map("id_bank")
   bank                   Bank          @relation(fields: [idBank], references: [id])
   street                 String

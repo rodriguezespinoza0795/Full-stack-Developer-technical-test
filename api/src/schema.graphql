@@ -94,7 +94,7 @@ type formAnswer {
   nationality: Nationality
   phone: Int!
   mail: String!
-  clabe: Int!
+  clabe: String!
   idBank: Int!
   bank: Bank
   street: String!
@@ -140,7 +140,7 @@ input createformAnswer {
   idNationality: Int!
   phone: Int!
   mail: String!
-  clabe: Int!
+  clabe: String!
   idBank: Int!
   street: String!
   intNumber: Int!    

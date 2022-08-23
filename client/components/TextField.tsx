@@ -11,7 +11,7 @@ const MuiTextField = ({ control, name, label, required, rules, errors, helperTex
             render={({ field: { onChange } }) => {
                 return (
                     <TextField
-                        onChange={(event) => onChange(type === "number" ? Number(event.target.value) : event.target.value)}
+                        onChange={(event) => onChange(type === "number" && name !== 'clabe' ? Number(event.target.value) : event.target.value)}
                         error={errors?.[name]}
                         fullWidth
                         type={type}
