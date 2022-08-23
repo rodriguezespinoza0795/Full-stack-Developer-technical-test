@@ -2,7 +2,7 @@ import React from 'react'
 import { Controller } from 'react-hook-form';
 import { TextField } from '@mui/material';
 
-const MuiTextField = ({ control, name, label, required, rules, errors, helperText, type = "text" }: { control: any, name: string, label: string, required: boolean, rules?: any, errors?: any, helperText?: String, type?: String }) => {
+const MuiTextField = ({ control, name, label, required, rules, errors, helperText, type = "text" }: { control: any, name: string, label: string, required: boolean, rules?: any, errors?: any, helperText?: string, type?: string }) => {
     return (
         <Controller
             control={control}
