@@ -19,7 +19,7 @@ export default function App() {
 
     return (
         !loading && (
-            <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%', padding: '3rem' }}>
+            <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
                 <Grid
                     container
                     direction="row"

@@ -11,7 +11,7 @@ interface CardProps {
     external?: boolean
 }
 
-const Content = React.forwardRef(function Content({ title, description }: { title: string, description: string }, ref) {
+const Content = ({ title, description }: { title: string, description: string }) => {
     return (
         <>
             <Typography
@@ -31,7 +31,7 @@ const Content = React.forwardRef(function Content({ title, description }: { titl
             </Typography>
         </>
     );
-});
+};
 
 const CardComponent = ({ href, title, description, external = true }: CardProps) => {
     return (
