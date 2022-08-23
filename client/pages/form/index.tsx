@@ -17,6 +17,7 @@ export default function App() {
 
     const onSubmit = (data: any) => {
         MutateCreateForm({ variables: { data: data } });
+        reset()
         errorForm && enqueueSnackbar('Se Realizó el registro correctamente', { variant: "success" });
     }
 
