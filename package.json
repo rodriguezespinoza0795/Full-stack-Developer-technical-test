@@ -10,10 +10,6 @@
     "node": "16.x"
   },
   "workspaces": [
-    "client",
-    "api"
-  ],
-  "scripts": {
-    "build": "yarn --cwd api build"
-  }
+    "client"
+  ]
 }
