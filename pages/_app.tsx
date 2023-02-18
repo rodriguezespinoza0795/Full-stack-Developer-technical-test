@@ -1,9 +1,9 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Head from "next/head";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import Layout from '../components/Layout'
-import { SnackbarProvider } from 'notistack';
+import Layout from "../components/Layout";
+import { SnackbarProvider } from "notistack";
 
 const baseURL = process.env.NEXT_PUBLIC_SERVICE_URL || "http://localhost:4000";
 
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Layout>
       </SnackbarProvider>
     </ApolloProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

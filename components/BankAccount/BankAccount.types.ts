@@ -1,5 +1,5 @@
 export type BankAccountProps = {
-    control: any,
-    errors?: any,
-    data: any
-}
+  control: any;
+  errors?: any;
+  data: any;
+};

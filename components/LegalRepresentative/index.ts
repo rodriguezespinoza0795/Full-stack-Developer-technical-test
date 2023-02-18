@@ -1,1 +1,1 @@
-export { default as LegalRepresentative } from './LegalRepresentative';
+export { default as LegalRepresentative } from "./LegalRepresentative";
